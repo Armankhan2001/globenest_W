@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>GlobeNest Solutions - Travel & Visa Services</title>
+    <meta name="description" content="GlobeNest Solutions offers comprehensive visa processing, immigration services, and travel arrangements worldwide. Your trusted partner for all travel needs." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="GlobeNest Solutions - Travel & Visa Services" />
+    <meta property="og:description" content="Comprehensive visa processing, immigration solutions, and travel services to make your global dreams a reality." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://globenestsolutions.com" />
+    <style>
+      :root {
+        --primary-yellow: #F9E04C;
+        --primary-orange: #FF8A2A;
+        --dark: #121212;
+        --light: #FAFAFA;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--dark);
+        padding: 15px 0;
+        z-index: 1000;
+      }
+      
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        padding: 5px;
+      }
+      
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-family: 'Poppins', sans-serif;
+        transition: color 0.3s;
+      }
+      
+      .nav-links a:hover {
+        color: var(--primary-yellow);
+      }
+      
+      .cta-button {
+        display: none;
+      }
+      
+      .menu-toggle {
+        background-color: var(--primary-orange);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+      }
+      
+      .menu-toggle i {
+        font-size: 1.5rem;
+      }
+      
+      .mobile-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: #000000;
+        padding: 20px;
+        display: none;
+        border-top: 1px solid #333;
+        z-index: 1000;
+      }
+      
+      .mobile-menu.active {
+        display: block;
+      }
+      
+      .mobile-menu a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px 0;
+        font-family: 'Poppins', sans-serif;
+        border-bottom: 1px solid #333;
+      }
+      
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
+      
+      .mobile-cta {
+        background-color: var(--primary-orange);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 600;
+      }
+      
+      .hero {
+        height: 100vh;
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      
+      .hero-content {
+        max-width: 600px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      
+      .hero h1 span {
+        color: var(--primary-yellow);
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+      
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .primary-button {
+        background-color: var(--primary-orange);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+      }
+      
+      .secondary-button {
+        border: 2px solid var(--primary-yellow);
+        color: var(--primary-yellow);
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        font-weight: 600;
+      }
+      
+      .scroll-down {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        animation: bounce 2s infinite;
+      }
+      
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+      
+      section {
+        padding: 80px 0;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .section-header .tag {
+        color: var(--primary-orange);
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      
+      .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #666;
+      }
+      
+      .dark-section {
+        background-color: var(--dark);
+        color: white;
+      }
+      
+      .dark-section .section-header p {
+        color: #ccc;
+      }
+      
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .service-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 30px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(249, 224, 76, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      .service-icon i {
+        color: var(--primary-orange);
+        font-size: 1.5rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      
+      .service-card p {
+        margin-bottom: 15px;
+        color: #666;
+      }
+      
+      .service-card a {
+        color: var(--primary-orange);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+      
+      .service-card a i {
+        margin-left: 5px;
+      }
+      
+      .destinations-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .destination-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 250px;
+      }
+      
+      .destination-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      
+      .destination-card:hover img {
+        transform: scale(1.1);
+      }
+      
+      .destination-card .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        padding: 20px;
+      }
+      
+      .destination-card h3 {
+        color: white;
+        margin-bottom: 5px;
+      }
+      
+      .destination-card p {
+        color: var(--primary-yellow);
+      }
+      
+      .process-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .process-step {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 30px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      .process-step:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-yellow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      
+      .step-number span {
+        color: var(--dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      
+      .process-step h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      
+      .process-step p {
+        color: #666;
+      }
+      
+      .about-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+      
+      .about-content h2 {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 20px;
+      }
+      
+      .about-content p {
+        margin-bottom: 30px;
+        color: #ccc;
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      
+      .feature {
+        display: flex;
+        align-items: center;
+      }
+      
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(249, 224, 76, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+      
+      .feature-icon i {
+        color: var(--primary-yellow);
+      }
+      
+      .feature-text h4 {
+        color: white;
+        margin-bottom: 5px;
+      }
+      
+      .feature-text p {
+        color: #aaa;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+      
+      .stats-section {
+        background-color: var(--primary-yellow);
+        padding: 60px 0;
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .stat-item .number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+      
+      .stat-item .label {
+        color: rgba(0,0,0,0.7);
+        font-weight: 600;
+      }
+      
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .testimonial-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 30px;
+      }
+      
+      .stars {
+        color: var(--primary-yellow);
+        margin-bottom: 15px;
+      }
+      
+      .testimonial-text {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 20px;
+      }
+      
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+      
+      .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+      
+      .author-info h4 {
+        margin-bottom: 5px;
+      }
+      
+      .author-info p {
+        color: #999;
+        font-size: 0.9rem;
+      }
+      
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      
+      .contact-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+      }
+      
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(249, 224, 76, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+      
+      .contact-icon i {
+        color: var(--primary-yellow);
+      }
+      
+      .contact-text h4 {
+        color: white;
+        margin-bottom: 5px;
+      }
+      
+      .contact-text p, .contact-text a {
+        color: #ccc;
+        text-decoration: none;
+      }
+      
+      .contact-form {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      }
+      
+      .contact-form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      .form-select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+      
+      .form-button {
+        width: 100%;
+        background-color: var(--primary-orange);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 15px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .cta-section {
+        background-color: var(--primary-yellow);
+        padding: 60px 0;
+        text-align: center;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+        color: var(--dark);
+        margin-bottom: 20px;
+      }
+      
+      .cta-section p {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        color: rgba(0,0,0,0.7);
+      }
+      
+      .dark-button {
+        background-color: var(--dark);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+      }
+      
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 60px 0 30px;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      
+      .footer-logo {
+        display: inline-block;
+        padding: 8px;
+        margin-bottom: 20px;
+      }
+      
+      .footer-logo img {
+        height: 50px;
+        width: auto;
+      }
+      
+      .footer-about p {
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 10px;
+      }
+      
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      
+      .social-links a:hover {
+        background-color: var(--primary-yellow);
+        color: var(--dark);
+      }
+      
+      .footer-links h4 {
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .footer-links h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary-yellow);
+      }
+      
+      .footer-links ul {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+      
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      .footer-links a:hover {
+        color: var(--primary-yellow);
+      }
+      
+      .newsletter h4 {
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .newsletter h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary-yellow);
+      }
+      
+      .newsletter p {
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+      
+      .newsletter-form {
+        display: flex;
+      }
+      
+      .newsletter-input {
+        flex-grow: 1;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+      }
+      
+      .newsletter-button {
+        background-color: var(--primary-orange);
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        padding: 0 15px;
+        cursor: pointer;
+      }
+      
+      .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .copyright {
+        text-align: center;
+        color: #999;
+        font-size: 0.9rem;
+      }
+      
+      .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .footer-nav a {
+        color: #999;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+      }
+      
+      .footer-nav a:hover {
+        color: var(--primary-yellow);
+      }
+      
+      @media (min-width: 768px) {
+        .button-container {
+          flex-direction: row;
+        }
+        
+        .services-grid,
+        .destinations-grid,
+        .testimonials-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .process-grid,
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (min-width: 992px) {
+        .nav-links {
+          display: flex;
+        }
+        
+        .cta-button {
+          display: block;
+          background-color: var(--primary-orange);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        
+        .menu-toggle {
+          display: none;
+        }
+        
+        .hero h1 {
+          font-size: 3.5rem;
+        }
+        
+        .services-grid,
+        .testimonials-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .process-grid,
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .about-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        
+        .copyright {
+          text-align: left;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .destinations-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">
+            <img src="assets/IMG-20250515-WA0024.jpg" alt="GlobeNest Solutions">
+          </a>
+          
+          <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+          </div>
+          
+          <a href="#contact" class="cta-button">Get a Quote</a>
+          
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+        
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="mobile-cta">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+    
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Your Journey, <span>Our Expertise</span></h1>
+          <p>Comprehensive visa processing, immigration solutions, and travel services to make your global dreams a reality.</p>
+          <div class="button-container">
+            <a href="#services" class="primary-button">Explore Services <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="secondary-button">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <a href="#services" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+    
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">OUR SERVICES</span>
+          <h2>Comprehensive Travel & Visa Solutions</h2>
+          <p>Explore our range of services designed to make your international travel seamless and stress-free.</p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <h3>Visa Processing</h3>
+            <p>Expert assistance with tourist, business, work, and study visa applications for countries worldwide.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Immigration Services</h3>
+            <p>Complete immigration solutions including permanent residency, citizenship, and family sponsorship.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-plane-departure"></i>
+            </div>
+            <h3>Travel Bookings</h3>
+            <p>Competitive flight bookings, hotel accommodations, and complete travel packages for all budgets.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Study Abroad</h3>
+            <p>University selection, application assistance, and study visa processing for international students.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Business Travel</h3>
+            <p>Specialized travel arrangements for corporate clients including group bookings and business visa facilitation.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-hotel"></i>
+            </div>
+            <h3>Accommodation</h3>
+            <p>Wide range of accommodation options from luxury hotels to budget-friendly stays in prime locations.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="dark-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">DESTINATIONS</span>
+          <h2>Popular Destinations</h2>
+          <p>Explore our most sought-after destinations for travel, study, and immigration.</p>
+        </div>
+        
+        <div class="destinations-grid">
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="Greece">
+            <div class="overlay">
+              <h3>Greece</h3>
+              <p>Tourist & Business Visa</p>
+            </div>
+          </div>
+          
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="Australia">
+            <div class="overlay">
+              <h3>Australia</h3>
+              <p>Study & Immigration</p>
+            </div>
+          </div>
+          
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="Japan">
+            <div class="overlay">
+              <h3>Japan</h3>
+              <p>Work & Tourist Visa</p>
+            </div>
+          </div>
+          
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="United States">
+            <div class="overlay">
+              <h3>United States</h3>
+              <p>Business & Immigration</p>
+            </div>
+          </div>
+          
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="United Kingdom">
+            <div class="overlay">
+              <h3>United Kingdom</h3>
+              <p>Study & Work Visa</p>
+            </div>
+          </div>
+          
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=500" alt="United Arab Emirates">
+            <div class="overlay">
+              <h3>United Arab Emirates</h3>
+              <p>Tourist & Business</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">HOW WE WORK</span>
+          <h2>Our Simple Process</h2>
+          <p>We've streamlined our services to make your journey as smooth as possible.</p>
+        </div>
+        
+        <!-- Animated Country Flags Section -->
+        <div class="flag-carousel-container" style="margin: 50px auto; max-width: 800px; overflow: hidden; position: relative;">
+          <div class="flag-carousel" style="display: flex; animation: scrollFlags 20s linear infinite;">
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/us.png" alt="USA" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/gb.png" alt="UK" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/ca.png" alt="Canada" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/au.png" alt="Australia" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/de.png" alt="Germany" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/fr.png" alt="France" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/jp.png" alt="Japan" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/ae.png" alt="UAE" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/sg.png" alt="Singapore" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/it.png" alt="Italy" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <!-- Duplicate flags to create a seamless loop -->
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/us.png" alt="USA" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/gb.png" alt="UK" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/ca.png" alt="Canada" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div class="flag-item" style="flex: 0 0 auto; margin: 0 15px;">
+              <img src="assets/au.png" alt="Australia" style="height: 50px; width: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+          </div>
+        </div>
+        
+        <style>
+          @keyframes scrollFlags {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        </style>
+        
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">
+              <span>1</span>
+            </div>
+            <h3>Consultation</h3>
+            <p>Schedule a free consultation to discuss your travel or immigration goals.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">
+              <span>2</span>
+            </div>
+            <h3>Documentation</h3>
+            <p>Our experts will guide you through the required documentation process.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">
+              <span>3</span>
+            </div>
+            <h3>Application</h3>
+            <p>We submit your application and handle all communications with authorities.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">
+              <span>4</span>
+            </div>
+            <h3>Approval</h3>
+            <p>Receive your visa/travel documents and prepare for your journey.</p>
+          </div>
+        </div>
+        
+        <div class="text-center" style="text-align: center; margin-top: 40px;">
+          <a href="#contact" class="primary-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="dark-section" id="about">
+      <div class="container">
+        <div class="about-container">
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600" alt="GlobeNest Solutions Team">
+          </div>
+          
+          <div class="about-content">
+            <span class="tag">ABOUT US</span>
+            <h2>Your Trusted Travel & Visa Partner</h2>
+            <p>GlobeNest Solutions has been helping travelers, students, and immigrants achieve their global aspirations for over a decade. Our team of experts specializes in visa processing, immigration services, and travel arrangements for destinations worldwide.</p>
+            
+            <div class="features-grid">
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Expert Team</h4>
+                  <p>Certified consultants</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>24/7 Support</h4>
+                  <p>Always available</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>High Success Rate</h4>
+                  <p>98% approval rate</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Global Network</h4>
+                  <p>Partners worldwide</p>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#" class="secondary-button" style="background-color: var(--primary-yellow); color: var(--dark);">More About Us <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="number" id="clients-count">5000+</div>
+            <div class="label">Clients Served</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="number" id="visas-count">10000+</div>
+            <div class="label">Visas Processed</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="number" id="success-rate">98%</div>
+            <div class="label">Success Rate</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="number" id="countries-count">50+</div>
+            <div class="label">Countries Covered</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">TESTIMONIALS</span>
+          <h2>What Our Clients Say</h2>
+          <p>Hear from those who have successfully achieved their travel and immigration goals with us.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">GlobeNest Solutions made my study visa process so smooth. Their team guided me through every step and I got my visa approved in record time. Highly recommended!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100" alt="Sarah J.">
+              <div class="author-info">
+                <h4>Sarah J.</h4>
+                <p>Student Visa - Canada</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">As a business traveler, I've used many travel services, but GlobeNest Solutions stands out. Their attention to detail and prompt response to all my queries made my business trip planning effortless.</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100" alt="Michael T.">
+              <div class="author-info">
+                <h4>Michael T.</h4>
+                <p>Business Visa - UAE</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="testimonial-text">Our family vacation to Europe was brilliantly arranged by GlobeNest. From visa applications to accommodations, everything was perfect. The kids still talk about it!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100" alt="Jennifer W.">
+              <div class="author-info">
+                <h4>Jennifer W.</h4>
+                <p>Tourist Visa - Schengen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="dark-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">CONTACT US</span>
+          <h2>Get in Touch</h2>
+          <p>Have questions about our services? Reach out to us and our team will get back to you shortly.</p>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Our Location</h4>
+                <p>123 Global Avenue, Business District, City, Country</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email Us</h4>
+                <p><a href="mailto:info@globenestsolutions.com">info@globenestsolutions.com</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Call Us</h4>
+                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Business Hours</h4>
+                <p>
+                  Monday-Friday: 9am-6pm<br>
+                  Saturday: 10am-2pm
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="service">Service Interested In</label>
+                <select id="service" class="form-select" required>
+                  <option value="" disabled selected>Select a Service</option>
+                  <option value="tourist-visa">Tourist Visa</option>
+                  <option value="business-visa">Business Visa</option>
+                  <option value="study-visa">Study Visa</option>
+                  <option value="work-visa">Work Visa</option>
+                  <option value="immigration">Immigration</option>
+                  <option value="travel-booking">Travel Booking</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+              </div>
+              
+              <button type="submit" class="form-button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Begin Your Journey?</h2>
+        <p>Contact our expert team today to discuss your travel or immigration needs and take the first step toward your global adventure.</p>
+        <a href="#contact" class="dark-button">Get Started Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+    
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <a href="#" class="footer-logo">
+              <img src="assets/IMG-20250515-WA0024.jpg" alt="GlobeNest Solutions">
+            </a>
+            <p>Your trusted partner for all travel, visa, and immigration services. Making global dreams a reality since 2010.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Tourist Visa</a></li>
+              <li><a href="#">Business Visa</a></li>
+              <li><a href="#">Study Visa</a></li>
+              <li><a href="#">Work Visa</a></li>
+              <li><a href="#">Immigration</a></li>
+              <li><a href="#">Travel Bookings</a></li>
+            </ul>
+          </div>
+          
+          <div class="newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe to our newsletter for travel tips and visa updates.</p>
+            <form class="newsletter-form">
+              <input type="email" class="newsletter-input" placeholder="Your email" required>
+              <button type="submit" class="newsletter-button"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="copyright">© 2023 GlobeNest Solutions. All rights reserved.</p>
+          <div class="footer-nav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        if (mobileMenu.classList.contains('active')) {
+          menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+      
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            // Close mobile menu if open
+            if (mobileMenu.classList.contains('active')) {
+              mobileMenu.classList.remove('active');
+              menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            // Scroll to target
+            window.scrollTo({
+              top: target.offsetTop - 70,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Form Submission
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Simulate form submission
+          const submitButton = this.querySelector('button[type="submit"]');
+          const originalText = submitButton.textContent;
+          
+          submitButton.textContent = 'Sending...';
+          submitButton.disabled = true;
+          
+          setTimeout(() => {
+            alert('Message sent successfully! We will get back to you soon.');
+            this.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+          }, 1500);
+        });
+      }
+      
+      // Simple Number Animation for Stats
+      function animateValue(id, start, end, duration) {
+        const obj = document.getElementById(id);
+        if (!obj) return;
+        
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          let value = Math.floor(progress * (end - start) + start);
+          
+          if (id === 'clients-count') {
+            obj.textContent = value + '+';
+          } else if (id === 'visas-count') {
+            obj.textContent = value + '+';
+          } else if (id === 'success-rate') {
+            obj.textContent = value + '%';
+          } else if (id === 'countries-count') {
+            obj.textContent = value + '+';
+          }
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+      
+      // Intersection Observer for Stats Animation
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate stats when they come into view
+            animateValue('clients-count', 0, 5000, 2000);
+            animateValue('visas-count', 0, 10000, 2000);
+            animateValue('success-rate', 0, 98, 2000);
+            animateValue('countries-count', 0, 50, 2000);
+            
+            // Unobserve after animation is triggered
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Start observing the stats section
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.style.padding = '10px 0';
+          header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        } else {
+          header.style.padding = '15px 0';
+          header.style.boxShadow = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
