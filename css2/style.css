@@ -619,21 +619,11 @@
 
       
 
-      /* new one  */
-
-    .dark-section {
-  background-color: var(--dark);
-  color: white;
-    }
+      /* new 
     .section {
   padding: 80px 0;
     }
     
-    .body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--gn-light);
-  line-height: 1.6;}
-
    .section-header {
         text-align: center;
         margin-bottom: 60px;
