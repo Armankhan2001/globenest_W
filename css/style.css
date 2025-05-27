@@ -622,6 +622,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-text {
   margin-bottom: 30px;
+  /* text-align: center; */
+  /* color: #fff; Adjust color as needed */
+  font-size: 14px;
+  /* margin: 0 auto; */
+  /* max-width: 600px;  */ */
 }
 
 .footer-social a {
